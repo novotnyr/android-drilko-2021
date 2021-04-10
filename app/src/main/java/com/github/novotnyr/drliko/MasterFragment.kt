@@ -23,6 +23,9 @@ class MasterFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // empty
+        binding.cityListView.setOnItemClickListener { _, _, position, _ ->
+            val city = binding.cityListView.getItemAtPosition(position) as String
+            cityViewModel.setSelectedCity(city)
+        }
     }
 }
